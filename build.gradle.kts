@@ -1,29 +1,10 @@
+// Top-level build file for Android project
 plugins {
-    kotlin("jvm")
-    kotlin("plugin.serialization")
-    application
+    id("com.android.application") version "8.2.0" apply false
+    id("org.jetbrains.kotlin.android") version "1.9.20" apply false
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.20" apply false
 }
 
-group = "com.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation("io.ktor:ktor-client-core:3.0.2")
-    implementation("io.ktor:ktor-client-cio:3.0.2")
-    implementation("io.ktor:ktor-client-content-negotiation:3.0.2")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
-    implementation("ch.qos.logback:logback-classic:1.5.12")
-}
-
-application {
-    mainClass.set("com.example.MainKt")
-}
-
-kotlin {
-    jvmToolchain(21)
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
 }
